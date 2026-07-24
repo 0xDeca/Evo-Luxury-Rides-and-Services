@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { useState } from 'react'
 
 const navLinks = [
-  { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
   { href: '/cars', label: 'Cars' },
   { href: '/apartments', label: 'Apartments' },
@@ -20,19 +19,19 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-1">
-            <span className="text-2xl font-bold text-luxury-gold">EKO</span>
-            <span className="text-sm text-white/80 hidden sm:inline">Luxury Rides</span>
+            <span className="text-xl font-bold tracking-wider text-luxury-gold">EKO</span>
+            <span className="text-xs text-white/60 hidden sm:inline ml-1">Luxury Rides</span>
           </Link>
 
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-8">
             {navLinks.map((l) => (
-              <Link key={l.href} href={l.href} className="text-sm text-white/70 hover:text-luxury-gold transition-colors">
+              <Link key={l.href} href={l.href} className="text-sm text-white/70 hover:text-white transition-colors">
                 {l.label}
               </Link>
             ))}
-            <a href="https://wa.me/2348107837959" target="_blank" rel="noopener noreferrer" className="bg-luxury-gold text-luxury-900 px-4 py-2 rounded text-sm font-semibold hover:bg-luxury-gold-light transition-colors">
-              WhatsApp
-            </a>
+            <Link href="/cars" className="bg-luxury-gold text-luxury-900 px-5 py-2 rounded text-sm font-semibold hover:bg-luxury-gold-light transition-colors">
+              Book Now
+            </Link>
           </div>
 
           <button onClick={() => setOpen(!open)} className="md:hidden text-white p-2">
@@ -45,13 +44,13 @@ export default function Navbar() {
         <div className="md:hidden bg-luxury-800 border-t border-luxury-700/50">
           <div className="px-4 py-3 space-y-2">
             {navLinks.map((l) => (
-              <Link key={l.href} href={l.href} onClick={() => setOpen(false)} className="block text-white/70 hover:text-luxury-gold py-2 text-sm">
+              <Link key={l.href} href={l.href} onClick={() => setOpen(false)} className="block text-white/70 hover:text-white py-2 text-sm">
                 {l.label}
               </Link>
             ))}
-            <a href="https://wa.me/2348107837959" target="_blank" rel="noopener noreferrer" className="block text-center bg-luxury-gold text-luxury-900 px-4 py-2 rounded text-sm font-semibold mt-3">
-              WhatsApp
-            </a>
+            <Link href="/cars" onClick={() => setOpen(false)} className="block text-center bg-luxury-gold text-luxury-900 px-4 py-2 rounded text-sm font-semibold mt-3">
+              Book Now
+            </Link>
           </div>
         </div>
       )}

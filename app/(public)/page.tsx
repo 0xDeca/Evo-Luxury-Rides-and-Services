@@ -1,14 +1,13 @@
 import Hero from '@/components/Hero'
-import { ServicesSection, FeaturedCarsSection, FeaturedApartmentsSection, TrustBadgesSection, TestimonialsSection, BlogPreviewSection, FAQSection, CTASection } from '@/components/HomeSections'
+import { CategoriesSection, FeaturedCarsSection, TrustSection, TestimonialsSection, BlogPreviewSection, FAQSection, CTASection } from '@/components/HomeSections'
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <ServicesSection />
+      <CategoriesSection />
       <FeaturedCarsSection />
-      <FeaturedApartmentsSection />
-      <TrustBadgesSection />
+      <TrustSection />
       <TestimonialsSection />
       <BlogPreviewSection />
       <FAQSection />
