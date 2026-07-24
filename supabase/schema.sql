@@ -1,5 +1,3 @@
--- Eko Luxury Rides and Service Apartments - Database Schema
-
 -- Cars table
 CREATE TABLE IF NOT EXISTS cars (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
@@ -102,20 +100,114 @@ ALTER TABLE settings ENABLE ROW LEVEL SECURITY;
 ALTER TABLE blog_posts ENABLE ROW LEVEL SECURITY;
 ALTER TABLE bookings ENABLE ROW LEVEL SECURITY;
 
--- Public read access
-CREATE POLICY "Public read cars" ON cars FOR SELECT USING (true);
-CREATE POLICY "Public read apartments" ON apartments FOR SELECT USING (true);
-CREATE POLICY "Public read testimonials" ON testimonials FOR SELECT USING (true);
-CREATE POLICY "Public read settings" ON settings FOR SELECT USING (true);
-CREATE POLICY "Public read blog_posts" ON blog_posts FOR SELECT USING (true);
+-- Grants (table-level access; RLS still filters rows)
+GRANT SELECT ON cars TO anon, authenticated;
+GRANT SELECT ON apartments TO anon, authenticated;
+GRANT SELECT ON testimonials TO anon, authenticated;
+GRANT SELECT ON settings TO anon, authenticated;
+GRANT SELECT ON blog_posts TO anon, authenticated;
 
--- Admin full access (authenticated users only)
-CREATE POLICY "Admin all cars" ON cars FOR ALL USING (auth.role() = 'authenticated');
-CREATE POLICY "Admin all apartments" ON apartments FOR ALL USING (auth.role() = 'authenticated');
-CREATE POLICY "Admin all testimonials" ON testimonials FOR ALL USING (auth.role() = 'authenticated');
-CREATE POLICY "Admin all settings" ON settings FOR ALL USING (auth.role() = 'authenticated');
-CREATE POLICY "Admin all blog_posts" ON blog_posts FOR ALL USING (auth.role() = 'authenticated');
-CREATE POLICY "Admin all bookings" ON bookings FOR ALL USING (auth.role() = 'authenticated');
+GRANT INSERT ON bookings TO anon;
 
--- Allow insert into bookings from public (for booking form)
-CREATE POLICY "Public insert bookings" ON bookings FOR INSERT WITH CHECK (true);
+-- Optional: authenticated can view their own bookings later; for now we keep it open only via RLS policies below
+GRANT SELECT ON bookings TO authenticated;
+
+-- -------------------------
+-- Policies (drop + recreate)
+-- -------------------------
+
+-- Cars: public read
+DROP POLICY IF EXISTS "Public read cars" ON public.cars;
+CREATE POLICY "Public read cars"
+ON public.cars
+FOR SELECT
+TO anon
+USING (true);
+
+DROP POLICY IF EXISTS "Admin all cars" ON public.cars;
+CREATE POLICY "Admin all cars"
+ON public.cars
+FOR ALL
+TO authenticated
+USING (true)
+WITH CHECK (true);
+
+-- Apartments: public read
+DROP POLICY IF EXISTS "Public read apartments" ON public.apartments;
+CREATE POLICY "Public read apartments"
+ON public.apartments
+FOR SELECT
+TO anon
+USING (true);
+
+DROP POLICY IF EXISTS "Admin all apartments" ON public.apartments;
+CREATE POLICY "Admin all apartments"
+ON public.apartments
+FOR ALL
+TO authenticated
+USING (true)
+WITH CHECK (true);
+
+-- Testimonials: public read
+DROP POLICY IF EXISTS "Public read testimonials" ON public.testimonials;
+CREATE POLICY "Public read testimonials"
+ON public.testimonials
+FOR SELECT
+TO anon
+USING (true);
+
+DROP POLICY IF EXISTS "Admin all testimonials" ON public.testimonials;
+CREATE POLICY "Admin all testimonials"
+ON public.testimonials
+FOR ALL
+TO authenticated
+USING (true)
+WITH CHECK (true);
+
+-- Settings: public read (be careful: this exposes settings to the world)
+DROP POLICY IF EXISTS "Public read settings" ON public.settings;
+CREATE POLICY "Public read settings"
+ON public.settings
+FOR SELECT
+TO anon
+USING (true);
+
+DROP POLICY IF EXISTS "Admin all settings" ON public.settings;
+CREATE POLICY "Admin all settings"
+ON public.settings
+FOR ALL
+TO authenticated
+USING (true)
+WITH CHECK (true);
+
+-- Blog posts: public read
+DROP POLICY IF EXISTS "Public read blog_posts" ON public.blog_posts;
+CREATE POLICY "Public read blog_posts"
+ON public.blog_posts
+FOR SELECT
+TO anon
+USING (true);
+
+DROP POLICY IF EXISTS "Admin all blog_posts" ON public.blog_posts;
+CREATE POLICY "Admin all blog_posts"
+ON public.blog_posts
+FOR ALL
+TO authenticated
+USING (true)
+WITH CHECK (true);
+
+-- Bookings: public insert (no reading restriction beyond what we grant)
+DROP POLICY IF EXISTS "Public insert bookings" ON public.bookings;
+CREATE POLICY "Public insert bookings"
+ON public.bookings
+FOR INSERT
+TO anon
+WITH CHECK (true);
+
+DROP POLICY IF EXISTS "Admin all bookings" ON public.bookings;
+CREATE POLICY "Admin all bookings"
+ON public.bookings
+FOR ALL
+TO authenticated
+USING (true)
+WITH CHECK (true);
