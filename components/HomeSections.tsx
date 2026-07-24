@@ -1,43 +1,46 @@
 import Link from 'next/link'
+import ScrollReveal from './ScrollReveal'
 
 function StarIcon() {
   return (
-    <svg className="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15.27L16.18 20l-1.64-7.03L20 8.24l-7.19-.61L10 1 7.19 7.63 0 8.24l5.46 4.73L3.82 20z" /></svg>
+    <svg className="w-4 h-4 fill-[#F8AC28]" viewBox="0 0 20 20"><path d="M10 15.27L16.18 20l-1.64-7.03L20 8.24l-7.19-.61L10 1 7.19 7.63 0 8.24l5.46 4.73L3.82 20z" /></svg>
   )
 }
 
 function CheckIcon() {
   return (
-    <svg className="w-5 h-5 text-luxury-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+    <svg className="w-5 h-5 text-[#F8AC28]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
   )
 }
 
 const categories = [
-  { name: 'Luxury Cars', count: '20 cars available', slug: '/cars?category=Luxury' },
-  { name: 'Electric Cars', count: '12 cars available', slug: '/cars?category=Electric' },
-  { name: 'Sports Cars', count: '10 cars available', slug: '/cars?category=Sports' },
-  { name: 'SUVs', count: '16 cars available', slug: '/cars?category=SUVs' },
+  { name: 'Luxury Cars', count: '20 cars available', slug: '/cars' },
+  { name: 'Electric Cars', count: '12 cars available', slug: '/cars' },
+  { name: 'Sports Cars', count: '10 cars available', slug: '/cars' },
+  { name: 'SUVs', count: '16 cars available', slug: '/cars' },
   { name: 'Service Apartments', count: '8 apartments available', slug: '/apartments' },
 ]
 
 export function CategoriesSection() {
   return (
-    <section className="py-20 bg-luxury-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
-          Explore Our <span className="text-luxury-gold">Categories</span>
-        </h2>
-        <p className="text-white/50 text-center -mt-8 mb-12">We&apos;ll help you find the perfect ride or stay</p>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
-          {categories.map((c) => (
-            <Link key={c.name} href={c.slug} className="group bg-luxury-900 border border-luxury-700 rounded-xl p-6 text-center hover:border-luxury-gold/50 transition-all">
-              <p className="text-lg font-semibold mb-1 group-hover:text-luxury-gold transition-colors">{c.name}</p>
-              <p className="text-white/40 text-sm">{c.count}</p>
-            </Link>
-          ))}
+    <ScrollReveal>
+      <section className="py-24 bg-[#0e1117]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 text-[#f2f2f2]">
+            Explore Our <span className="text-[#F8AC28]">Categories</span>
+          </h2>
+          <p className="text-[#84878b] text-center mb-12">We&apos;ll help you find the perfect ride or stay</p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            {categories.map((c) => (
+              <Link key={c.name} href={c.slug} className="group bg-[#1a1d23] border border-[#2a2d33] rounded-[32px] p-6 text-center hover:bg-[#24282e] hover:border-[#F8AC28]/30 transition-all duration-300 cursor-pointer">
+                <p className="text-lg font-semibold mb-1 text-[#f2f2f2] group-hover:text-[#F8AC28] transition-colors duration-200">{c.name}</p>
+                <p className="text-[#5c5f64] text-sm">{c.count}</p>
+              </Link>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </ScrollReveal>
   )
 }
 
@@ -52,49 +55,51 @@ const demoFeaturedCars = [
 
 export function FeaturedCarsSection() {
   return (
-    <section className="py-20 bg-luxury-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
-          Explore Popular <span className="text-luxury-gold">Car Models</span>
-        </h2>
-        <p className="text-white/50 text-center mb-12 max-w-xl mx-auto">Latest car reviews and releases. We&apos;ll help you rent with confidence.</p>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {demoFeaturedCars.map((car) => (
-            <Link key={car.slug} href={`/cars/${car.slug}`} className="group bg-luxury-800 border border-luxury-700 rounded-xl overflow-hidden hover:border-luxury-gold/50 transition-all">
-              <div className="h-52 overflow-hidden">
-                <img src={car.image} alt={car.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-              </div>
-              <div className="p-5">
-                <h3 className="text-lg font-semibold mb-3 group-hover:text-luxury-gold transition-colors">{car.name}</h3>
-                <div className="flex items-center gap-3 text-xs text-white/50 mb-3">
-                  <span className="flex items-center gap-1">
-                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-                    {car.hp} hp
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                    {car.seats} seats
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                    {car.engine}
-                  </span>
+    <ScrollReveal delay={100}>
+      <section className="py-24 bg-[#0a0e13]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 text-[#f2f2f2]">
+            Explore Popular <span className="text-[#F8AC28]">Car Models</span>
+          </h2>
+          <p className="text-[#84878b] text-center mb-12 max-w-xl mx-auto">Latest car reviews and releases. We&apos;ll help you rent with confidence.</p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {demoFeaturedCars.map((car, i) => (
+              <Link key={car.slug} href={`/cars/${car.slug}`} className="group bg-[#1a1d23] border border-[#2a2d33] rounded-[32px] overflow-hidden hover:bg-[#24282e] hover:border-[#F8AC28]/30 transition-all duration-300 cursor-pointer" style={{ animationDelay: `${i * 80}ms` }}>
+                <div className="h-52 overflow-hidden">
+                  <img src={car.image} alt={car.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-luxury-gold font-bold">{car.price}</span>
-                  <span className="text-white/30 text-xs">{car.transmission}</span>
+                <div className="p-6">
+                  <h3 className="text-lg font-semibold mb-3 text-[#f2f2f2] group-hover:text-[#F8AC28] transition-colors duration-200">{car.name}</h3>
+                  <div className="flex items-center gap-3 text-xs text-[#84878b] mb-3">
+                    <span className="flex items-center gap-1">
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                      {car.hp} hp
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                      {car.seats} seats
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                      {car.engine}
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-[#F8AC28] font-bold">{car.price}</span>
+                    <span className="text-[#5c5f64] text-xs">{car.transmission}</span>
+                  </div>
                 </div>
-              </div>
+              </Link>
+            ))}
+          </div>
+          <div className="text-center mt-12">
+            <Link href="/cars" className="inline-block border border-[#2a2d33] text-[#f2f2f2] px-8 py-3 rounded-[32px] font-semibold hover:bg-[#1a1d23] transition-colors duration-200">
+              Explore All Cars
             </Link>
-          ))}
+          </div>
         </div>
-        <div className="text-center mt-10">
-          <Link href="/cars" className="inline-block border border-luxury-gold text-luxury-gold px-8 py-3 rounded font-semibold hover:bg-luxury-gold/10 transition-colors">
-            Explore All Cars
-          </Link>
-        </div>
-      </div>
-    </section>
+      </section>
+    </ScrollReveal>
   )
 }
 
@@ -107,25 +112,27 @@ const trustItems = [
 
 export function TrustSection() {
   return (
-    <section className="py-20 bg-luxury-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
-          Why You Can <span className="text-luxury-gold">Trust Us</span>
-        </h2>
-        <p className="text-white/50 text-center mb-12 max-w-xl mx-auto">Explore both stylish sports cars and comfortable apartments</p>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {trustItems.map((item) => (
-            <div key={item.title} className="bg-luxury-900 border border-luxury-700 rounded-xl p-6">
-              <div className="w-10 h-10 bg-luxury-gold/10 rounded-lg flex items-center justify-center mb-4">
-                <CheckIcon />
+    <ScrollReveal delay={200}>
+      <section className="py-24 bg-[#0e1117]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 text-[#f2f2f2]">
+            Why You Can <span className="text-[#F8AC28]">Trust Us</span>
+          </h2>
+          <p className="text-[#84878b] text-center mb-12 max-w-xl mx-auto">Explore both stylish sports cars and comfortable apartments</p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {trustItems.map((item) => (
+              <div key={item.title} className="bg-[#1a1d23] border border-[#2a2d33] rounded-[32px] p-6">
+                <div className="w-10 h-10 bg-[#F8AC28]/10 rounded-xl flex items-center justify-center mb-4">
+                  <CheckIcon />
+                </div>
+                <h3 className="font-semibold mb-2 text-[#f2f2f2]">{item.title}</h3>
+                <p className="text-[#84878b] text-sm leading-relaxed">{item.desc}</p>
               </div>
-              <h3 className="font-semibold mb-2">{item.title}</h3>
-              <p className="text-white/50 text-sm leading-relaxed">{item.desc}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </ScrollReveal>
   )
 }
 
@@ -138,30 +145,32 @@ const demoTestimonials = [
 
 export function TestimonialsSection() {
   return (
-    <section className="py-20 bg-luxury-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
-          Trusted by Clients <span className="text-luxury-gold">Worldwide</span>
-        </h2>
-        <p className="text-white/50 text-center mb-12">Genuine feedback from customers who value quality and reliability.</p>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {demoTestimonials.map((t) => (
-            <div key={t.name} className="bg-luxury-800 border border-luxury-700 rounded-xl p-6">
-              <div className="flex text-luxury-gold mb-3">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <StarIcon key={i} />
-                ))}
+    <ScrollReveal delay={100}>
+      <section className="py-24 bg-[#0a0e13]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 text-[#f2f2f2]">
+            Trusted by Clients <span className="text-[#F8AC28]">Worldwide</span>
+          </h2>
+          <p className="text-[#84878b] text-center mb-12">Genuine feedback from customers who value quality and reliability.</p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {demoTestimonials.map((t) => (
+              <div key={t.name} className="bg-[#1a1d23] border border-[#2a2d33] rounded-[32px] p-6">
+                <div className="flex text-[#F8AC28] mb-3">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <StarIcon key={i} />
+                  ))}
+                </div>
+                <p className="text-[#f2f2f2]/70 text-sm mb-4 leading-relaxed">&ldquo;{t.quote}&rdquo;</p>
+                <div>
+                  <p className="font-semibold text-sm text-[#f2f2f2]">{t.name}</p>
+                  <p className="text-[#5c5f64] text-xs">{t.role}</p>
+                </div>
               </div>
-              <p className="text-white/70 text-sm mb-4 leading-relaxed">&ldquo;{t.quote}&rdquo;</p>
-              <div>
-                <p className="font-semibold text-sm">{t.name}</p>
-                <p className="text-white/40 text-xs">{t.role}</p>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </ScrollReveal>
   )
 }
 
@@ -173,39 +182,41 @@ const blogPreview = [
 
 export function BlogPreviewSection() {
   return (
-    <section className="py-20 bg-luxury-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
-          Latest <span className="text-luxury-gold">Articles</span>
-        </h2>
-        <p className="text-white/50 text-center mb-12">Explore both stylish sports cars and comfortable apartment stays</p>
-        <div className="grid md:grid-cols-3 gap-6">
-          {blogPreview.map((p) => (
-            <Link key={p.slug} href={`/blog/${p.slug}`} className="group bg-luxury-900 border border-luxury-700 rounded-xl overflow-hidden hover:border-luxury-gold/50 transition-all">
-              <div className="h-48 overflow-hidden">
-                <img src={p.image} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-              </div>
-              <div className="p-5">
-                <div className="flex items-center gap-2 text-xs text-white/40 mb-2">
-                  <span>{p.date}</span>
-                  <span>•</span>
-                  <span>{p.author}</span>
+    <ScrollReveal delay={200}>
+      <section className="py-24 bg-[#0e1117]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 text-[#f2f2f2]">
+            Latest <span className="text-[#F8AC28]">Articles</span>
+          </h2>
+          <p className="text-[#84878b] text-center mb-12">Explore both stylish sports cars and comfortable apartment stays</p>
+          <div className="grid md:grid-cols-3 gap-6">
+            {blogPreview.map((p) => (
+              <Link key={p.slug} href={`/blog/${p.slug}`} className="group bg-[#1a1d23] border border-[#2a2d33] rounded-[32px] overflow-hidden hover:bg-[#24282e] hover:border-[#F8AC28]/30 transition-all duration-300 cursor-pointer">
+                <div className="h-48 overflow-hidden">
+                  <img src={p.image} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>
-                <span className="inline-block bg-luxury-gold/20 text-luxury-gold text-xs px-2 py-0.5 rounded mb-2">{p.category}</span>
-                <h3 className="font-semibold mb-2 group-hover:text-luxury-gold transition-colors">{p.title}</h3>
-                <p className="text-white/50 text-sm leading-relaxed">{p.excerpt}</p>
-                <span className="text-luxury-gold text-sm font-semibold mt-3 inline-block group-hover:translate-x-1 transition-transform">Learn More →</span>
-              </div>
+                <div className="p-6">
+                  <div className="flex items-center gap-2 text-xs text-[#5c5f64] mb-2">
+                    <span>{p.date}</span>
+                    <span>•</span>
+                    <span>{p.author}</span>
+                  </div>
+                  <span className="inline-block bg-[#F8AC28]/15 text-[#F8AC28] text-xs px-2 py-0.5 rounded mb-2">{p.category}</span>
+                  <h3 className="font-semibold mb-2 text-[#f2f2f2] group-hover:text-[#F8AC28] transition-colors duration-200">{p.title}</h3>
+                  <p className="text-[#84878b] text-sm leading-relaxed">{p.excerpt}</p>
+                  <span className="text-[#F8AC28] text-sm font-semibold mt-3 inline-block group-hover:translate-x-1 transition-transform duration-200">Learn More →</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+          <div className="text-center mt-12">
+            <Link href="/blog" className="inline-block border border-[#2a2d33] text-[#f2f2f2] px-8 py-3 rounded-[32px] font-semibold hover:bg-[#1a1d23] transition-colors duration-200">
+              Explore All Articles
             </Link>
-          ))}
+          </div>
         </div>
-        <div className="text-center mt-10">
-          <Link href="/blog" className="inline-block border border-luxury-gold text-luxury-gold px-8 py-3 rounded font-semibold hover:bg-luxury-gold/10 transition-colors">
-            Explore All Articles
-          </Link>
-        </div>
-      </div>
-    </section>
+      </section>
+    </ScrollReveal>
   )
 }
 
@@ -220,41 +231,45 @@ const faqs = [
 
 export function FAQSection() {
   return (
-    <section className="py-20 bg-luxury-900">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
-          Popular <span className="text-luxury-gold">Questions</span>
-        </h2>
-        <p className="text-white/50 text-center mb-12">Explore the questions we get asked the most</p>
-        <div className="space-y-3">
-          {faqs.map((faq, i) => (
-            <details key={i} className="bg-luxury-800 border border-luxury-700 rounded-xl group">
-              <summary className="px-6 py-4 font-medium cursor-pointer list-none flex justify-between items-center text-sm">
-                {faq.q}
-                <svg className="w-4 h-4 text-luxury-gold group-open:rotate-180 transition-transform flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-              </summary>
-              <div className="px-6 pb-4 text-white/50 text-sm leading-relaxed">{faq.a}</div>
-            </details>
-          ))}
+    <ScrollReveal delay={100}>
+      <section className="py-24 bg-[#0a0e13]">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 text-[#f2f2f2]">
+            Popular <span className="text-[#F8AC28]">Questions</span>
+          </h2>
+          <p className="text-[#84878b] text-center mb-12">Explore the questions we get asked the most</p>
+          <div className="space-y-3">
+            {faqs.map((faq, i) => (
+              <details key={i} className="bg-[#1a1d23] border border-[#2a2d33] rounded-[32px] group overflow-hidden">
+                <summary className="px-6 py-4 font-medium cursor-pointer list-none flex justify-between items-center text-sm text-[#f2f2f2]">
+                  {faq.q}
+                  <svg className="w-4 h-4 text-[#F8AC28] group-open:rotate-180 transition-transform duration-300 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                </summary>
+                <div className="px-6 pb-4 text-[#84878b] text-sm leading-relaxed">{faq.a}</div>
+              </details>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </ScrollReveal>
   )
 }
 
 export function CTASection() {
   return (
-    <section className="py-20 bg-luxury-800 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-luxury-gold/8 via-transparent to-transparent" />
-      <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-          Reserve Your <span className="text-luxury-gold">Premium Experience</span> Today
-        </h2>
-        <p className="text-white/50 mb-8 max-w-lg mx-auto">Latest luxury cars and premium apartments. We&apos;ll help you book with confidence.</p>
-        <Link href="/cars" className="inline-block bg-luxury-gold text-luxury-900 px-8 py-3.5 rounded font-semibold text-lg hover:bg-luxury-gold-light transition-colors">
-          Book Your Dream Car
-        </Link>
-      </div>
-    </section>
+    <ScrollReveal delay={200}>
+      <section className="py-24 bg-[#0e1117] relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#F8AC28]/6 via-transparent to-transparent" />
+        <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-[#f2f2f2]">
+            Reserve Your <span className="text-[#F8AC28]">Premium Experience</span> Today
+          </h2>
+          <p className="text-[#84878b] mb-8 max-w-lg mx-auto">Latest luxury cars and premium apartments. We&apos;ll help you book with confidence.</p>
+          <Link href="/cars" className="inline-block bg-[#F8AC28] text-[#0a0e13] px-8 py-3.5 rounded-[32px] font-semibold text-lg hover:bg-[#e69d1f] transition-colors duration-200">
+            Book Your Dream Car
+          </Link>
+        </div>
+      </section>
+    </ScrollReveal>
   )
 }
