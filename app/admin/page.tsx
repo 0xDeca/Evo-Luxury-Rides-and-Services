@@ -24,7 +24,7 @@ export default function AdminDashboardPage() {
   }, [])
 
   const cards = [
-    { label: 'Total Cars', value: stats.cars, href: '/admin/cars', color: 'border-luxury-gold' },
+    { label: 'Total Cars', value: stats.cars, href: '/admin/cars', color: 'border-[#F8AC28]' },
     { label: 'Total Apartments', value: stats.apartments, href: '/admin/apartments', color: 'border-blue-500' },
     { label: 'Testimonials', value: stats.testimonials, href: '/admin/testimonials', color: 'border-green-500' },
     { label: 'Bookings', value: stats.bookings, href: '#', color: 'border-purple-500' },
@@ -35,15 +35,15 @@ export default function AdminDashboardPage() {
       <h1 className="text-2xl font-bold mb-6">Dashboard</h1>
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         {cards.map((c) => (
-          <Link key={c.label} href={c.href} className={`bg-luxury-800 border border-luxury-700 border-t-4 ${c.color} rounded-xl p-5 hover:bg-luxury-700 transition-colors`}>
+          <Link key={c.label} href={c.href} className={`bg-[#0e1117] border border-[#2a2d33] border-t-4 ${c.color} rounded-xl p-5 hover:bg-[#1a1d23] transition-colors`}>
             <p className="text-white/60 text-sm">{c.label}</p>
             <p className="text-3xl font-bold mt-1">{c.value}</p>
           </Link>
         ))}
       </div>
       <div className="flex gap-4">
-        <Link href="/admin/cars" className="bg-luxury-gold text-luxury-900 px-5 py-2.5 rounded font-semibold hover:bg-luxury-gold-light transition-colors">+ Add Car</Link>
-        <Link href="/admin/apartments" className="bg-luxury-gold text-luxury-900 px-5 py-2.5 rounded font-semibold hover:bg-luxury-gold-light transition-colors">+ Add Apartment</Link>
+        <Link href="/admin/cars" className="bg-[#F8AC28] text-[#0a0e13] px-5 py-2.5 rounded font-semibold hover:bg-[#e69d1f] transition-colors">+ Add Car</Link>
+        <Link href="/admin/apartments" className="bg-[#F8AC28] text-[#0a0e13] px-5 py-2.5 rounded font-semibold hover:bg-[#e69d1f] transition-colors">+ Add Apartment</Link>
       </div>
     </div>
   )

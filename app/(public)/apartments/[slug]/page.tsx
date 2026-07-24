@@ -28,47 +28,47 @@ export default function ApartmentDetailPage() {
 
   return (
     <>
-      <section className="pt-20 bg-luxury-900">
+      <section className="pt-20 bg-[#0a0e13]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <Link href="/apartments" className="text-luxury-gold hover:text-luxury-gold-light text-sm">&larr; Back to Apartments</Link>
+          <Link href="/apartments" className="text-[#F8AC28] hover:text-[#F8AC28]-light text-sm">&larr; Back to Apartments</Link>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-10">
             <div className="rounded-xl overflow-hidden h-80 sm:h-96"><img src={apt.image} alt={apt.name} className="w-full h-full object-cover" /></div>
             <div>
-              <div className="inline-block bg-luxury-gold/20 text-luxury-gold text-sm px-3 py-1 rounded mb-3">{apt.type}</div>
+              <div className="inline-block bg-[#F8AC28]/20 text-[#F8AC28] text-sm px-3 py-1 rounded mb-3">{apt.type}</div>
               <h1 className="text-3xl sm:text-4xl font-bold mb-2">{apt.name}</h1>
               <p className="text-white/50 mb-4">{apt.location}</p>
               <div className="grid grid-cols-3 gap-4 mb-6">
                 {[{ label: 'Bedrooms', value: `${apt.beds}` }, { label: 'Bathrooms', value: `${apt.baths}` }, { label: 'Size', value: `${apt.size} sqm` }].map((s) => (
-                  <div key={s.label} className="bg-luxury-800 border border-luxury-700 rounded-lg p-3"><p className="text-white/50 text-xs">{s.label}</p><p className="font-semibold">{s.value}</p></div>
+                  <div key={s.label} className="bg-[#0e1117] border border-[#2a2d33] rounded-lg p-3"><p className="text-white/50 text-xs">{s.label}</p><p className="font-semibold">{s.value}</p></div>
                 ))}
               </div>
               <div className="mb-6">
                 <h3 className="font-semibold mb-2">Amenities</h3>
-                <div className="flex flex-wrap gap-2">{apt.amenities.map((am) => <span key={am} className="bg-luxury-700 text-white/70 text-xs px-3 py-1 rounded">{am}</span>)}</div>
+                <div className="flex flex-wrap gap-2">{apt.amenities.map((am) => <span key={am} className="bg-[#1a1d23] text-white/70 text-xs px-3 py-1 rounded">{am}</span>)}</div>
               </div>
               <p className="text-white/70 mb-6 leading-relaxed">{apt.description}</p>
-              <div className="text-2xl text-luxury-gold font-bold mb-4">{apt.price}</div>
+              <div className="text-2xl text-[#F8AC28] font-bold mb-4">{apt.price}</div>
               <label className="flex items-center gap-3 mb-6 text-sm">
-                <input type="checkbox" checked={withSecurity} onChange={(e) => setWithSecurity(e.target.checked)} className="accent-luxury-gold w-4 h-4" />
+                <input type="checkbox" checked={withSecurity} onChange={(e) => setWithSecurity(e.target.checked)} className="accent-[#F8AC28] w-4 h-4" />
                 <span>With Security</span>
               </label>
-              <button onClick={() => setShowBooking(true)} className="w-full bg-luxury-gold text-luxury-900 py-3 rounded font-semibold hover:bg-luxury-gold-light transition-colors">Book Now</button>
+              <button onClick={() => setShowBooking(true)} className="w-full bg-[#F8AC28] text-[#0a0e13] py-3 rounded font-semibold hover:bg-[#e69d1f] transition-colors">Book Now</button>
             </div>
           </div>
         </div>
       </section>
 
       {related.length > 0 && (
-        <section className="py-16 bg-luxury-800">
+        <section className="py-16 bg-[#0e1117]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-bold mb-8">Similar <span className="text-luxury-gold">Apartments</span></h2>
+            <h2 className="text-2xl font-bold mb-8">Similar <span className="text-[#F8AC28]">Apartments</span></h2>
             <div className="grid md:grid-cols-3 gap-6">
               {related.map((r) => (
-                <Link key={r.slug} href={`/apartments/${r.slug}`} className="group bg-luxury-900 border border-luxury-700 rounded-xl overflow-hidden hover:border-luxury-gold/50 transition-all">
+                <Link key={r.slug} href={`/apartments/${r.slug}`} className="group bg-[#0a0e13] border border-[#2a2d33] rounded-xl overflow-hidden hover:border-[#F8AC28]/30 transition-all">
                   <div className="h-40 overflow-hidden"><img src={r.image} alt={r.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform" /></div>
-                  <div className="p-4"><h3 className="font-semibold group-hover:text-luxury-gold">{r.name}</h3><p className="text-luxury-gold font-bold text-sm mt-1">{r.price}</p></div>
+                  <div className="p-4"><h3 className="font-semibold group-hover:text-[#F8AC28]">{r.name}</h3><p className="text-[#F8AC28] font-bold text-sm mt-1">{r.price}</p></div>
                 </Link>
               ))}
             </div>

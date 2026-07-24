@@ -22,11 +22,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   }
 
   return (
-    <div className="min-h-screen bg-luxury-900 flex">
-      <aside className="w-60 bg-luxury-800 border-r border-luxury-700 flex flex-col">
-        <div className="p-5 border-b border-luxury-700">
+    <div className="min-h-screen bg-[#0a0e13] flex">
+      <aside className="w-60 bg-[#0e1117] border-r border-[#2a2d33] flex flex-col">
+        <div className="p-5 border-b border-[#2a2d33]">
           <Link href="/admin" className="text-xl font-bold">
-            <span className="text-luxury-gold">EKO</span>{' '}
+            <span className="text-[#F8AC28]">EKO</span>{' '}
             <span className="text-white/80 text-sm">Admin</span>
           </Link>
         </div>
@@ -37,7 +37,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               <Link
                 key={n.href}
                 href={n.href}
-                className={`flex items-center gap-3 px-3 py-2.5 rounded text-sm transition-colors ${active ? 'bg-luxury-gold/20 text-luxury-gold' : 'text-white/60 hover:bg-luxury-700 hover:text-white'}`}
+                className={`flex items-center gap-3 px-3 py-2.5 rounded text-sm transition-colors ${active ? 'bg-[#F8AC28]/20 text-[#F8AC28]' : 'text-white/60 hover:bg-[#1a1d23] hover:text-white'}`}
               >
                 <span>{n.icon}</span>
                 <span>{n.label}</span>
@@ -45,8 +45,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             )
           })}
         </nav>
-        <div className="p-3 border-t border-luxury-700">
-          <button onClick={handleLogout} className="w-full flex items-center gap-3 px-3 py-2.5 rounded text-sm text-white/60 hover:bg-luxury-700 hover:text-white transition-colors">
+        <div className="p-3 border-t border-[#2a2d33]">
+          <button onClick={handleLogout} className="w-full flex items-center gap-3 px-3 py-2.5 rounded text-sm text-white/60 hover:bg-[#1a1d23] hover:text-white transition-colors">
             <span>🚪</span>
             <span>Logout</span>
           </button>

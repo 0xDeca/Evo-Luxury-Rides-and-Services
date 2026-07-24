@@ -1,12 +1,12 @@
 export default function TermsPage() {
   return (
     <>
-      <section className="pt-24 pb-12 bg-luxury-900">
+      <section className="pt-24 pb-12 bg-[#0a0e13]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4">Terms & <span className="text-luxury-gold">Conditions</span></h1>
+          <h1 className="text-4xl sm:text-5xl font-bold mb-4">Terms & <span className="text-[#F8AC28]">Conditions</span></h1>
         </div>
       </section>
-      <section className="pb-20 bg-luxury-900">
+      <section className="pb-20 bg-[#0a0e13]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-white/70 space-y-6 leading-relaxed">
           <h2 className="text-xl font-semibold text-white">Terms of Service</h2>
           <p>By booking any service with Eko Luxury Rides and Service Apartments, you agree to the following terms and conditions.</p>

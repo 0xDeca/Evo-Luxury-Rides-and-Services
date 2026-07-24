@@ -1,12 +1,12 @@
 export default function PrivacyPage() {
   return (
     <>
-      <section className="pt-24 pb-12 bg-luxury-900">
+      <section className="pt-24 pb-12 bg-[#0a0e13]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4">Privacy <span className="text-luxury-gold">Policy</span></h1>
+          <h1 className="text-4xl sm:text-5xl font-bold mb-4">Privacy <span className="text-[#F8AC28]">Policy</span></h1>
         </div>
       </section>
-      <section className="pb-20 bg-luxury-900">
+      <section className="pb-20 bg-[#0a0e13]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-white/70 space-y-6 leading-relaxed">
           <h2 className="text-xl font-semibold text-white">Privacy Policy</h2>
           <p>Eko Luxury Rides and Service Apartments respects your privacy. This policy outlines how we collect, use, and protect your personal information.</p>

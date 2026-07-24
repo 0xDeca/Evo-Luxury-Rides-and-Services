@@ -26,9 +26,9 @@ export default function CarDetailPage() {
 
   return (
     <>
-      <section className="pt-20 bg-luxury-900">
+      <section className="pt-20 bg-[#0a0e13]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <Link href="/cars" className="text-luxury-gold hover:text-luxury-gold-light text-sm">&larr; Back to Cars</Link>
+          <Link href="/cars" className="text-[#F8AC28] hover:text-[#F8AC28]-light text-sm">&larr; Back to Cars</Link>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-10">
@@ -37,30 +37,30 @@ export default function CarDetailPage() {
               <h1 className="text-3xl sm:text-4xl font-bold mb-4">{car.name}</h1>
               <div className="grid grid-cols-2 gap-4 mb-6">
                 {[{ label: 'Horsepower', value: `${car.hp} hp` }, { label: 'Seats', value: `${car.seats} seats` }, { label: 'Engine', value: car.engine }, { label: 'Transmission', value: car.transmission }].map((s) => (
-                  <div key={s.label} className="bg-luxury-800 border border-luxury-700 rounded-lg p-3"><p className="text-white/50 text-xs">{s.label}</p><p className="font-semibold">{s.value}</p></div>
+                  <div key={s.label} className="bg-[#0e1117] border border-[#2a2d33] rounded-lg p-3"><p className="text-white/50 text-xs">{s.label}</p><p className="font-semibold">{s.value}</p></div>
                 ))}
               </div>
               <p className="text-white/70 mb-6 leading-relaxed">{car.description}</p>
-              <div className="text-2xl text-luxury-gold font-bold mb-4">{car.price}</div>
+              <div className="text-2xl text-[#F8AC28] font-bold mb-4">{car.price}</div>
               <label className="flex items-center gap-3 mb-6 text-sm">
-                <input type="checkbox" checked={withDriver} onChange={(e) => setWithDriver(e.target.checked)} className="accent-luxury-gold w-4 h-4" />
+                <input type="checkbox" checked={withDriver} onChange={(e) => setWithDriver(e.target.checked)} className="accent-[#F8AC28] w-4 h-4" />
                 <span>With Driver</span>
               </label>
-              <button onClick={() => setShowBooking(true)} className="w-full bg-luxury-gold text-luxury-900 py-3 rounded font-semibold hover:bg-luxury-gold-light transition-colors">Book Now</button>
+              <button onClick={() => setShowBooking(true)} className="w-full bg-[#F8AC28] text-[#0a0e13] py-3 rounded font-semibold hover:bg-[#e69d1f] transition-colors">Book Now</button>
             </div>
           </div>
         </div>
       </section>
 
       {related.length > 0 && (
-        <section className="py-16 bg-luxury-800">
+        <section className="py-16 bg-[#0e1117]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-bold mb-8">Similar <span className="text-luxury-gold">Cars</span></h2>
+            <h2 className="text-2xl font-bold mb-8">Similar <span className="text-[#F8AC28]">Cars</span></h2>
             <div className="grid md:grid-cols-3 gap-6">
               {related.map((r) => (
-                <Link key={r.slug} href={`/cars/${r.slug}`} className="group bg-luxury-900 border border-luxury-700 rounded-xl overflow-hidden hover:border-luxury-gold/50 transition-all">
+                <Link key={r.slug} href={`/cars/${r.slug}`} className="group bg-[#0a0e13] border border-[#2a2d33] rounded-xl overflow-hidden hover:border-[#F8AC28]/30 transition-all">
                   <div className="h-40 overflow-hidden"><img src={r.image} alt={r.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform" /></div>
-                  <div className="p-4"><h3 className="font-semibold group-hover:text-luxury-gold">{r.name}</h3><p className="text-luxury-gold font-bold text-sm mt-1">{r.price}</p></div>
+                  <div className="p-4"><h3 className="font-semibold group-hover:text-[#F8AC28]">{r.name}</h3><p className="text-[#F8AC28] font-bold text-sm mt-1">{r.price}</p></div>
                 </Link>
               ))}
             </div>

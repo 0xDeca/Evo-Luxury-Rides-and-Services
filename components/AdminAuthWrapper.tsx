@@ -22,7 +22,7 @@ export default function AdminAuthWrapper({ children }: { children: React.ReactNo
     return () => subscription.unsubscribe()
   }, [pathname, router])
 
-  if (authed === null) return <div className="min-h-screen bg-luxury-900 flex items-center justify-center"><p className="text-white/60">Loading...</p></div>
+  if (authed === null) return <div className="min-h-screen bg-[#0a0e13] flex items-center justify-center"><p className="text-white/60">Loading...</p></div>
 
   if (pathname === '/login') return <>{children}</>
   if (!authed) return null

@@ -40,21 +40,21 @@ export default function AdminSettingsPage() {
   return (
     <div className="p-6 max-w-2xl">
       <h1 className="text-2xl font-bold mb-6">Settings</h1>
-      <div className="bg-luxury-800 border border-luxury-700 rounded-xl p-6 space-y-4">
+      <div className="bg-[#0e1117] border border-[#2a2d33] rounded-xl p-6 space-y-4">
         <div>
           <label className="block text-sm text-white/70 mb-1">WhatsApp Number</label>
-          <input value={whatsapp} onChange={(e) => setWhatsapp(e.target.value)} className="w-full bg-luxury-900 border border-luxury-600 rounded px-3 py-2.5 text-white focus:outline-none focus:border-luxury-gold" placeholder="e.g. 08107837959" />
+          <input value={whatsapp} onChange={(e) => setWhatsapp(e.target.value)} className="w-full bg-[#0a0e13] border border-[#2a2d33] rounded px-3 py-2.5 text-white focus:outline-none focus:border-[#F8AC28]" placeholder="e.g. 08107837959" />
           <p className="text-xs text-white/40 mt-1">This number is used for all booking WhatsApp links</p>
         </div>
         <div>
           <label className="block text-sm text-white/70 mb-1">Business Address</label>
-          <textarea rows={3} value={address} onChange={(e) => setAddress(e.target.value)} className="w-full bg-luxury-900 border border-luxury-600 rounded px-3 py-2.5 text-white focus:outline-none focus:border-luxury-gold" />
+          <textarea rows={3} value={address} onChange={(e) => setAddress(e.target.value)} className="w-full bg-[#0a0e13] border border-[#2a2d33] rounded px-3 py-2.5 text-white focus:outline-none focus:border-[#F8AC28]" />
         </div>
         <div>
           <label className="block text-sm text-white/70 mb-1">Business Hours</label>
-          <input value={hours} onChange={(e) => setHours(e.target.value)} className="w-full bg-luxury-900 border border-luxury-600 rounded px-3 py-2.5 text-white focus:outline-none focus:border-luxury-gold" placeholder="e.g. Open 24 hours" />
+          <input value={hours} onChange={(e) => setHours(e.target.value)} className="w-full bg-[#0a0e13] border border-[#2a2d33] rounded px-3 py-2.5 text-white focus:outline-none focus:border-[#F8AC28]" placeholder="e.g. Open 24 hours" />
         </div>
-        <button onClick={handleSave} disabled={saving} className="bg-luxury-gold text-luxury-900 px-6 py-2.5 rounded font-semibold hover:bg-luxury-gold-light transition-colors disabled:opacity-50">
+        <button onClick={handleSave} disabled={saving} className="bg-[#F8AC28] text-[#0a0e13] px-6 py-2.5 rounded font-semibold hover:bg-[#e69d1f] transition-colors disabled:opacity-50">
           {saving ? 'Saving...' : saved ? 'Saved!' : 'Save Settings'}
         </button>
       </div>

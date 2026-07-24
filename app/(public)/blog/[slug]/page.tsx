@@ -154,17 +154,17 @@ export default function BlogPostPage() {
 
   return (
     <>
-      <section className="pt-24 pb-12 bg-luxury-900">
+      <section className="pt-24 pb-12 bg-[#0a0e13]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/blog" className="text-luxury-gold hover:text-luxury-gold-light text-sm">&larr; Back to Blog</Link>
+          <Link href="/blog" className="text-[#F8AC28] hover:text-[#F8AC28]-light text-sm">&larr; Back to Blog</Link>
         </div>
       </section>
 
-      <article className="pb-20 bg-luxury-900">
+      <article className="pb-20 bg-[#0a0e13]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="rounded-xl overflow-hidden h-64 sm:h-80 mb-8"><img src={post.image} alt={post.title} className="w-full h-full object-cover" /></div>
           <div className="flex items-center gap-3 text-sm text-white/50 mb-4">
-            <span>{post.date}</span><span>•</span><span>{post.author}</span><span>•</span><span className="text-luxury-gold">{post.category}</span>
+            <span>{post.date}</span><span>•</span><span>{post.author}</span><span>•</span><span className="text-[#F8AC28]">{post.category}</span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-bold mb-8">{post.title}</h1>
           <div className="prose prose-invert prose-lg max-w-none text-white/80 leading-relaxed whitespace-pre-line">{post.content}</div>

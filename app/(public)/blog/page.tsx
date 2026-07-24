@@ -9,20 +9,20 @@ const blogPosts = [
 export default function BlogPage() {
   return (
     <>
-      <section className="pt-32 pb-16 bg-luxury-900">
+      <section className="pt-32 pb-16 bg-[#0a0e13]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl sm:text-5xl font-bold mb-4">
-            Latest <span className="text-luxury-gold">Articles</span>
+            Latest <span className="text-[#F8AC28]">Articles</span>
           </h1>
           <p className="text-white/50 max-w-xl mx-auto">Explore both stylish sports cars and comfortable apartment stays</p>
         </div>
       </section>
 
-      <section className="pb-20 bg-luxury-900">
+      <section className="pb-20 bg-[#0a0e13]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {blogPosts.map((p) => (
-              <Link key={p.slug} href={`/blog/${p.slug}`} className="group bg-luxury-800 border border-luxury-700 rounded-xl overflow-hidden hover:border-luxury-gold/50 transition-all">
+              <Link key={p.slug} href={`/blog/${p.slug}`} className="group bg-[#0e1117] border border-[#2a2d33] rounded-xl overflow-hidden hover:border-[#F8AC28]/30 transition-all">
                 <div className="h-52 overflow-hidden">
                   <img src={p.image} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>
@@ -30,10 +30,10 @@ export default function BlogPage() {
                   <div className="flex items-center gap-2 text-xs text-white/50 mb-2">
                     <span>{p.date}</span><span>•</span><span>{p.author}</span>
                   </div>
-                  <span className="inline-block bg-luxury-gold/20 text-luxury-gold text-xs px-2 py-0.5 rounded mb-2">{p.category}</span>
-                  <h3 className="text-lg font-semibold mb-2 group-hover:text-luxury-gold transition-colors">{p.title}</h3>
+                  <span className="inline-block bg-[#F8AC28]/20 text-[#F8AC28] text-xs px-2 py-0.5 rounded mb-2">{p.category}</span>
+                  <h3 className="text-lg font-semibold mb-2 group-hover:text-[#F8AC28] transition-colors">{p.title}</h3>
                   <p className="text-white/50 text-sm leading-relaxed">{p.excerpt}</p>
-                  <span className="text-luxury-gold text-sm font-semibold mt-3 inline-block group-hover:translate-x-1 transition-transform">Learn More →</span>
+                  <span className="text-[#F8AC28] text-sm font-semibold mt-3 inline-block group-hover:translate-x-1 transition-transform">Learn More →</span>
                 </div>
               </Link>
             ))}

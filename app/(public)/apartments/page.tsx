@@ -22,37 +22,37 @@ export default function ApartmentsPage() {
 
   return (
     <>
-      <section className="pt-24 pb-12 bg-luxury-900">
+      <section className="pt-24 pb-12 bg-[#0a0e13]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4">Premium Service <span className="text-luxury-gold">Apartments</span></h1>
+          <h1 className="text-4xl sm:text-5xl font-bold mb-4">Premium Service <span className="text-[#F8AC28]">Apartments</span></h1>
           <p className="text-white/60 max-w-xl mx-auto">Comfortable and secure apartments across Nigeria</p>
         </div>
       </section>
 
-      <section className="pb-20 bg-luxury-900">
+      <section className="pb-20 bg-[#0a0e13]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap gap-2 mb-8 justify-center">
             {types.map((t) => (
-              <button key={t} onClick={() => setFilter(t)} className={`px-4 py-2 rounded text-sm font-medium transition-colors ${filter === t ? 'bg-luxury-gold text-luxury-900' : 'bg-luxury-800 text-white/70 hover:bg-luxury-700'}`}>{t === 'All' ? 'All' : t.charAt(0).toUpperCase() + t.slice(1)}</button>
+              <button key={t} onClick={() => setFilter(t)} className={`px-4 py-2 rounded text-sm font-medium transition-colors ${filter === t ? 'bg-[#F8AC28] text-[#0a0e13]' : 'bg-[#0e1117] text-white/70 hover:bg-[#1a1d23]'}`}>{t === 'All' ? 'All' : t.charAt(0).toUpperCase() + t.slice(1)}</button>
             ))}
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map((a) => (
-              <Link key={a.slug} href={`/apartments/${a.slug}`} className="group bg-luxury-800 border border-luxury-700 rounded-xl overflow-hidden hover:border-luxury-gold/50 transition-all">
+              <Link key={a.slug} href={`/apartments/${a.slug}`} className="group bg-[#0e1117] border border-[#2a2d33] rounded-xl overflow-hidden hover:border-[#F8AC28]/30 transition-all">
                 <div className="h-56 overflow-hidden"><img src={a.image} alt={a.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" /></div>
                 <div className="p-5">
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="bg-luxury-gold/20 text-luxury-gold text-xs px-2 py-1 rounded">{a.type.charAt(0).toUpperCase() + a.type.slice(1)}</span>
+                    <span className="bg-[#F8AC28]/20 text-[#F8AC28] text-xs px-2 py-1 rounded">{a.type.charAt(0).toUpperCase() + a.type.slice(1)}</span>
                     <span className="text-white/40 text-xs">{a.location}</span>
                   </div>
-                  <h3 className="text-xl font-semibold mb-2 group-hover:text-luxury-gold transition-colors">{a.name}</h3>
+                  <h3 className="text-xl font-semibold mb-2 group-hover:text-[#F8AC28] transition-colors">{a.name}</h3>
                   <div className="flex gap-3 text-xs text-white/50 mb-3">
                     <span>{a.beds} bed</span><span>{a.baths} bath</span><span>{a.size} sqm</span>
                   </div>
                   <div className="flex flex-wrap gap-1 mb-3">
-                    {a.amenities.slice(0, 4).map((am) => <span key={am} className="bg-luxury-700 text-white/60 text-xs px-2 py-0.5 rounded">{am}</span>)}
+                    {a.amenities.slice(0, 4).map((am) => <span key={am} className="bg-[#1a1d23] text-white/60 text-xs px-2 py-0.5 rounded">{am}</span>)}
                   </div>
-                  <p className="text-luxury-gold font-bold">{a.price}</p>
+                  <p className="text-[#F8AC28] font-bold">{a.price}</p>
                 </div>
               </Link>
             ))}
