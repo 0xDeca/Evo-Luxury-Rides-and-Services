@@ -1,5 +1,5 @@
 import Hero from '@/components/Hero'
-import { CategoriesSection, FeaturedCarsSection, TrustSection, TestimonialsSection, BlogPreviewSection, FAQSection, CTASection } from '@/components/HomeSections'
+import { CategoriesSection, FeaturedCarsSection, CompanyLogosSection, TrustSection, GallerySection, TestimonialsSection, BlogPreviewSection, FAQSection, CTASection } from '@/components/HomeSections'
 
 export default function Home() {
   return (
@@ -7,7 +7,9 @@ export default function Home() {
       <Hero />
       <CategoriesSection />
       <FeaturedCarsSection />
+      <CompanyLogosSection />
       <TrustSection />
+      <GallerySection />
       <TestimonialsSection />
       <BlogPreviewSection />
       <FAQSection />
