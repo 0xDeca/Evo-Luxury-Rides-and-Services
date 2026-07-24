@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { supabase } from '@/lib/supabase'
 
-export default function DashboardPage() {
+export default function AdminDashboardPage() {
   const [stats, setStats] = useState({ cars: 0, apartments: 0, testimonials: 0, bookings: 0 })
 
   useEffect(() => {
@@ -24,9 +24,9 @@ export default function DashboardPage() {
   }, [])
 
   const cards = [
-    { label: 'Total Cars', value: stats.cars, href: '/cars', color: 'border-luxury-gold' },
-    { label: 'Total Apartments', value: stats.apartments, href: '/apartments', color: 'border-blue-500' },
-    { label: 'Testimonials', value: stats.testimonials, href: '/testimonials', color: 'border-green-500' },
+    { label: 'Total Cars', value: stats.cars, href: '/admin/cars', color: 'border-luxury-gold' },
+    { label: 'Total Apartments', value: stats.apartments, href: '/admin/apartments', color: 'border-blue-500' },
+    { label: 'Testimonials', value: stats.testimonials, href: '/admin/testimonials', color: 'border-green-500' },
     { label: 'Bookings', value: stats.bookings, href: '#', color: 'border-purple-500' },
   ]
 
@@ -42,8 +42,8 @@ export default function DashboardPage() {
         ))}
       </div>
       <div className="flex gap-4">
-        <Link href="/cars" className="bg-luxury-gold text-luxury-900 px-5 py-2.5 rounded font-semibold hover:bg-luxury-gold-light transition-colors">+ Add Car</Link>
-        <Link href="/apartments" className="bg-luxury-gold text-luxury-900 px-5 py-2.5 rounded font-semibold hover:bg-luxury-gold-light transition-colors">+ Add Apartment</Link>
+        <Link href="/admin/cars" className="bg-luxury-gold text-luxury-900 px-5 py-2.5 rounded font-semibold hover:bg-luxury-gold-light transition-colors">+ Add Car</Link>
+        <Link href="/admin/apartments" className="bg-luxury-gold text-luxury-900 px-5 py-2.5 rounded font-semibold hover:bg-luxury-gold-light transition-colors">+ Add Apartment</Link>
       </div>
     </div>
   )

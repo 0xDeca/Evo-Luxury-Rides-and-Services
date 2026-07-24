@@ -6,10 +6,10 @@ import { supabase } from '@/lib/supabase'
 
 const nav = [
   { href: '/', label: 'Dashboard', icon: '📊' },
-  { href: '/cars', label: 'Cars', icon: '🚗' },
-  { href: '/apartments', label: 'Apartments', icon: '🏢' },
-  { href: '/testimonials', label: 'Testimonials', icon: '⭐' },
-  { href: '/settings', label: 'Settings', icon: '⚙️' },
+  { href: '/admin/cars', label: 'Cars', icon: '🚗' },
+  { href: '/admin/apartments', label: 'Apartments', icon: '🏢' },
+  { href: '/admin/testimonials', label: 'Testimonials', icon: '⭐' },
+  { href: '/admin/settings', label: 'Settings', icon: '⚙️' },
 ]
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -18,14 +18,14 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   const handleLogout = async () => {
     await supabase.auth.signOut()
-    router.push('/login')
+    router.push('/admin/login')
   }
 
   return (
     <div className="min-h-screen bg-luxury-900 flex">
       <aside className="w-60 bg-luxury-800 border-r border-luxury-700 flex flex-col">
         <div className="p-5 border-b border-luxury-700">
-          <Link href="/" className="text-xl font-bold">
+          <Link href="/admin" className="text-xl font-bold">
             <span className="text-luxury-gold">EKO</span>{' '}
             <span className="text-white/80 text-sm">Admin</span>
           </Link>
