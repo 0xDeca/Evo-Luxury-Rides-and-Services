@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  --color-luxury-900: #0a0a0a;
+  --color-luxury-800: #141414;
+  --color-luxury-700: #1a1a1a;
+  --color-luxury-600: #2a2a2a;
+  --color-luxury-500: #3a3a3a;
+  --color-luxury-gold: #d4a853;
+  --color-luxury-gold-light: #e8c06a;
+  --color-luxury-gold-dark: #b8923a;
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body { @apply bg-luxury-900 text-white font-sans; }

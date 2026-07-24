@@ -1,0 +1,14 @@
+{
+  "name": "eko-luxury",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev:public": "npm run dev -w apps/public",
+    "dev:admin": "npm run dev -w apps/admin",
+    "build:public": "npm run build -w apps/public",
+    "build:admin": "npm run build -w apps/admin"
+  }
+}
